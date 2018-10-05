@@ -5,28 +5,30 @@
  * This class creates simple StarScreen objects and assumes rows and cols > 0.
  * The following text is printed to standard out:
 
-[*][ ][ ]
-[ ][ ][ ]
+*..
+...
 
-[ ][ ][ ][ ][ ]
-[ ][ ][ ][*][ ]
-[ ][ ][ ][ ][ ]
-[ ][ ][ ][ ][ ]
+.....
+...*.
+.....
+.....
 
-[ ][ ][ ][ ][ ][ ][ ][ ][ ][*]
+.........*
 
-[*][*]
-[*][*]
+**
+**
 
-[*][*][*][*][*][*][*]
-[*][ ][ ][ ][ ][ ][*]
-[*][ ][ ][ ][ ][ ][*]
-[*][ ][ ][ ][ ][ ][*]
-[*][*][*][*][*][*][*]
+*******
+*.....*
+*.....*
+*.....*
+*******
 
-[*][*][*]
-[*][*][*]
-[*][*][*]
+***
+***
+***
+
+
 */
 public class StarScreenDriver {
 
@@ -55,7 +57,7 @@ public class StarScreenDriver {
 	 */
 	public static void simpleScreen(int rows, int cols, int row, int col) {
 		StarScreen screen = new StarScreen(rows, cols);
-		screen.copyInto(row, col);
+		screen.writeInTo(row, col);
 		screen.print();
 	}
 
@@ -67,13 +69,13 @@ public class StarScreenDriver {
 		StarScreen screen = new StarScreen(rows, cols);
 		// put stars in the first and last columns.
 		for (int i = 0; i < rows; i++) {
-			screen.copyInto(i, 0);
-			screen.copyInto(i, cols - 1);
+			screen.writeInTo(i, 0);
+			screen.writeInTo(i, cols - 1);
 		}
 		// put stars in the first and last rows
 		for (int i = 0; i < cols; i++) {
-			screen.copyInto(0, i);
-			screen.copyInto(rows - 1, i);
+			screen.writeInTo(0, i);
+			screen.writeInTo(rows - 1, i);
 		}
 		screen.print();
 	}
@@ -83,7 +85,7 @@ public class StarScreenDriver {
 		StarScreen screen = new StarScreen(rows, cols);
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < cols; j++) {
-				screen.copyInto(i, j);
+				screen.writeInTo(i, j);
 			}
 		}
 		screen.print();
